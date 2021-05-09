@@ -6,23 +6,39 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+    <script src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/gridviewscroll.js"></script>
     <link href="css/GridViewScroll.css" rel="stylesheet" />
     <script type="text/javascript">
-    window.onload = function () {
-        var options = new GridViewScrollOptions();
-        options.elementID = "gvMain";
-        options.width = "100%";
-        options.height = 400;
-        gridViewScroll = new GridViewScroll(options);
-        gridViewScroll.enhance();
+
+        var gridViewScroll;  
+
+        $(document).ready(function () {
+            var options = new GridViewScrollOptions();
+            options.elementID = "gvMain";
+            options.width = "100%";
+            options.height = 400;
+            //options.freezeColumn = true;
+            //options.freezeColumnCssClass = "GridViewScrollItemFreeze";
+            //options.freezeColumnCount = 1;
+            gridViewScroll = new GridViewScroll(options);
+            gridViewScroll.enhance();
+        });
+
+        $(window).resize(function () {
+            resize();
+        });
+
+        function resize() {
+            gridViewScroll.enhance();
         }
+
     </script>
 
 </head>
 <body>
     <form id="form1" runat="server">
-        <div style="width:550px;height:550px;border:1px solid #CCCCCC;">
+        <div style="width:100%;height:550px;border:1px solid #CCCCCC;">
             <asp:GridView ID="gvMain" runat="server" style="width:100%;border-collapse:collapse;">
             <HeaderStyle CssClass="GridViewScrollHeader"></HeaderStyle>
             <RowStyle CssClass="GridViewScrollItem"></RowStyle>

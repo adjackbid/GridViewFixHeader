@@ -21,17 +21,25 @@ namespace GridViewFixHeader
 
         public void DummyData()
         {
+            string[] Cols = new string[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K","L","M","N","O","P","Q","R","S"};
+            //string[] Cols = new string[] { "A", "B", "C" };
             _dummmData = new DataTable();
-            _dummmData.Columns.Add("A", typeof(string));
-            _dummmData.Columns.Add("B", typeof(string));
-            _dummmData.Columns.Add("C", typeof(string));
-            _dummmData.Columns.Add("D", typeof(string));
-            _dummmData.Columns.Add("E", typeof(string));
+            foreach(string col in Cols)
+            {
+                _dummmData.Columns.Add(col, typeof(string));
+            }
             DataRow dr_row = null;
-            for(int i=0;i<100;i++)
+
+            dr_row = _dummmData.NewRow();
+            dr_row["A"] = "123djfjkdlsfjkldsfjldsfdsfsdfsdfsdfsdfsd";
+            _dummmData.Rows.Add(dr_row);
+            for (int i=0;i<100;i++)
             {
                 dr_row = _dummmData.NewRow();
-                dr_row.ItemArray = new object[] { $"A{i}", $"B{i}", $"C{i}", $"D{i}", $"E{i}" };
+                foreach(string col in Cols)
+                {
+                    dr_row[col] = $"{col}{i}";
+                }
                 _dummmData.Rows.Add(dr_row);
             }
         }

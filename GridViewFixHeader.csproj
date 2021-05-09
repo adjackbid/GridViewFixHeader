@@ -69,8 +69,10 @@
   <ItemGroup>
     <Content Include="css\GridViewScroll.css" />
     <Content Include="Demo.aspx" />
+    <Content Include="Demo2.aspx" />
     <Content Include="Global.asax" />
     <Content Include="js\gridviewscroll.js" />
+    <Content Include="js\jquery-3.6.0.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +82,13 @@
     </Compile>
     <Compile Include="Demo.aspx.designer.cs">
       <DependentUpon>Demo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Demo2.aspx.cs">
+      <DependentUpon>Demo2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Demo2.aspx.designer.cs">
+      <DependentUpon>Demo2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
